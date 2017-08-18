@@ -7,8 +7,8 @@ This tool processes image all at once without steps in between. Before starting 
 - Processing images from multiple input folders 
 - Duplicate file name support
 - Timelapse support
-- lens unvignetting
-- lens undistortion
+- lens unvignetting (k1,k2,k3,k4,k5,k6,p1,p2)
+- lens undistortion (k1,k2,k3,k4,k5,k6,p1,p2)
 - dark frame subtraction
 - Band alignment
 - Band cropping
@@ -21,8 +21,10 @@ This tool processes image all at once without steps in between. Before starting 
 - Libtiff
 - dirent
 - GDAL
+- Git
+- Microsoft Windows operating system
 
-## Installation:
+### Installation:
 - 1.0 Install Microsoft Visual Studio Community 2017
 - 1.1 Install Visual Studio Universal Windows Platform develeopment
 - 1.2 Install Visual Studio Desktop development with c++
@@ -52,12 +54,31 @@ This tool processes image all at once without steps in between. Before starting 
 - 7.3 You probably have to edit linker paths and vc++ source directory paths going to <code>Project->Project Properties->VC++ Directories->Library and include Directories</code>
 - 7.4 You probably have to edit paths in dependencies going to <code>Project->Project Properties->Linker->Input->Additional Dependencies</code>
 
-## Setup
-- Open the .sln file in visual studio and try to resolve all paths
+### Include Directories
+- You may have to tell visual studio where external include files are located. Goto "Project">"Properties">"VC++ Directories">"Include Directories" and add your specific paths
+- You may have to tell visual studio where external precompiled libraries are located. Goto "Project">"Properties">"VC++ Directories">"Library Directories" and add your specific paths
+- You may want to change Additional Dependencies in VIsual Studio. Goto "Project">"Properties">"Linkes">"Input">"Additional Dependencies" and add or remove precompiled libraries if you want. ex. gdal_i.lib;libtiff.lib;opencv_world320.lib;
 
-## Support:
+
+### Environment Variables
+After successfull compilation in Visual studio you may still can't execute the application due to missing precompiled dynamic link libraries .dll. You should change your environment variables in order that your computer knows where to search for the libraries when they are called from your application. Goto Windows Logo and search for system environment variables and open "Environment Variables...". 
+- Create a user variable called "OpenCV_DIR" and set the path to the downloaded opencv_folder\build. 
+- Edit the user path env. variable adding ...opencv_folder\build\x64\vc14\bin.
+- Edit the system Path env. variable and add your_path_to\ImageMagick-7.0.5-Q16 (should already exist)
+- Edit the system Path env. variable and add your_path_to\gdal-2.2.0\
+
+Alternatively you could place the .dll files into the folder where your  previously built executable is. If the .dll files are in the same folder as your .exe it will work.
+
+### Setup
+- Open the .sln file in visual studio and try to resolve all paths.
+
+### Support:
 - 16bit bit-depth TIF (.tif) files
 
-## Realization:
-- Object Based c++ and VB
-- Windows Form GUI .NET CLR
+### Realization:
+- Object Based c++ and Windows Form .NET
+
+### Notes:
+- You do not to have use all external dependencies included if you don't want use them (some are barely used)
+- There are hard-coded camera specific parameters you can change
+
