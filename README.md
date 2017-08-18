@@ -20,7 +20,7 @@ This tool processes image all at once without steps in between. Before starting 
 - OpenCV
 - Libtiff
 - dirent
-- GDAL
+- GDAL (optional)
 - Git
 - Microsoft Windows operating system
 
@@ -55,9 +55,9 @@ This tool processes image all at once without steps in between. Before starting 
 - 7.4 You probably have to edit paths in dependencies going to <code>Project->Project Properties->Linker->Input->Additional Dependencies</code>
 
 ### Include Directories
-- You may have to tell visual studio where external include files are located. Goto "Project">"Properties">"VC++ Directories">"Include Directories" and add your specific paths
-- You may have to tell visual studio where external precompiled libraries are located. Goto "Project">"Properties">"VC++ Directories">"Library Directories" and add your specific paths
-- You may want to change Additional Dependencies in VIsual Studio. Goto "Project">"Properties">"Linkes">"Input">"Additional Dependencies" and add or remove precompiled libraries if you want. ex. gdal_i.lib;libtiff.lib;opencv_world320.lib;
+- You may have to tell visual studio where external include files are located. Goto "Project">"Properties">"VC++ Directories">"Include Directories" and add your specific paths ex.<code>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files\gdal-2.2.0\alg;C:\Program Files\gdal-2.2.0\gcore;C:\Program Files\gdal-2.2.0\ogr;C:\Program Files\gdal-2.2.0\port;C:\Program Files\dirent;C:\Program Files\tiff-4.0.7\libtiff;C:\Program Files\ImageMagick-7.0.5-Q16\include;C:\Program Files\opencv\build\include;$(IncludePath)</code>
+- You may have to tell visual studio where external precompiled libraries are located. Goto "Project">"Properties">"VC++ Directories">"Library Directories" and add your specific paths ex. <code>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;C:\Program Files\gdal-2.2.0;C:\Program Files\tiff-4.0.7\libtiff;C:\Program Files\ImageMagick-7.0.5-Q16\lib;C:\Program Files\opencv\build\x64\vc14\lib;$(LibraryPath)</code>
+- You may want to change Additional Dependencies in VIsual Studio. Goto "Project">"Properties">"Linkes">"Input">"Additional Dependencies" and add or remove precompiled libraries if you want. Ex. <code>gdal_i.lib;libtiff.lib;opencv_world320.lib;CORE_RL_Magick++_.lib;CORE_RL_MagickCore_.lib;CORE_RL_MagickWand_.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;</code>
 
 
 ### Environment Variables
@@ -71,6 +71,10 @@ Alternatively you could place the .dll files into the folder where your  previou
 
 ### Setup
 - Open the .sln file in visual studio and try to resolve all paths.
+- Compile in x64 release mode
+- Entry Point Main
+- Namespace "PreProcessing"
+- Runtime Library "Multi-threaded DLL"
 
 ### Support:
 - 16bit bit-depth TIF (.tif) files
