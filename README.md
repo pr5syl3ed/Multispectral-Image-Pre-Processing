@@ -93,5 +93,18 @@ Alternatively you could place the .dll files into the folder where your  previou
 - Download gdal and put gdal202.dll into an .executable folder
 - Install Microsoft visual c++ 2013 redistributable x64.
 - Try to start the .executable
-
+The executable folder should then contain the following or more files:
+- CORE_RL_bzlib_.dll
+- CORE_RL_glib_.dll
+- CORE_RL_Icms_.dll
+- CORE_RL_Iqr_.dll
+- CORE_RL_magick++.dll
+- CORE_RL_MagickCore_.dll
+- CORE_RL_MagickWand_.dll
+- CORE_RL_ttf_.dll
+- CORE_RL_zlib_.dll
+- gdal202.dll
+- opencv_world320.dll
+- PreProcessing.exe
+- PreProcessing.lib
 
