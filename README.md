@@ -86,12 +86,12 @@ Alternatively you could place the .dll files into the folder where your  previou
 - You do not to have use all external dependencies included if you don't want use them (some are barely used)
 - There are hard-coded camera specific parameters you can change
 
-### Distribution to non-developers
-- Install Visual Studio 2017 as described above
+### Installation/Distribution to non-developers
+- Install Visual Studio 2017 as described above (maybe installing Microsoft visual c++ 2015 redistributable suffices)
 - Download OpenCV, extract it and put the opencv_world320.dll in the same folder as our compiled .executable
-- Install Image magick as described above
-- You could try to copy some dynamic link libraries into the .executable folder to skip installations
-- Please keep in mind that not all libraries can be used for every machine (better run Visual studio installer)
+- Install Image magick as described above and put the .dll files in the compiled executable folder
 - Download gdal and put gdal202.dll into an .executable folder
+- Install Microsoft visual c++ 2013 redistributable x64.
+- Try to start the .executable
 
 
